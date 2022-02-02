@@ -15,7 +15,7 @@ import lombok.Value;
 
 @Value
 @Builder
-public class ItemInfo {
+public class Original {
   @JsonProperty("myName")
   @JsonTypeInfo(
       use = JsonTypeInfo.Id.CUSTOM,
@@ -27,12 +27,12 @@ public class ItemInfo {
   String details;
 
   public static void main(String[] args) throws Exception {
-    Field field = ItemInfo.class.getDeclaredField("details");
+    Field field = Original.class.getDeclaredField("details");
     Objects.requireNonNull(field.getAnnotation(JsonTypeInfo.class));
     Objects.requireNonNull(field.getAnnotation(JsonProperty.class));
     Objects.requireNonNull(field.getAnnotation(JsonTypeIdResolver.class));
 
-    Method method = ItemInfo.ItemInfoBuilder.class.getMethod("details", String.class);
+    Method method = Original.OriginalBuilder.class.getMethod("details", String.class);
     Objects.requireNonNull(method.getAnnotation(JsonTypeInfo.class), "JsonTypeInfo not on builder");
     Objects.requireNonNull(method.getAnnotation(JsonProperty.class), "JsonProperty not on builder");
 

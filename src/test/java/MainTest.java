@@ -1,10 +1,16 @@
 import org.junit.jupiter.api.Test;
 
-import test.ItemInfo;
+import test.WithLombok;
+import test.WithoutLombok;
 
 public class MainTest {
   @Test
-  void test() throws Exception {
-    ItemInfo.main(new String[0]);
+  void testWithLombok() throws Exception {
+    WithLombok.main(new String[0]);
+  }
+
+  @Test
+  void testWithoutLombok() throws Exception {
+    WithoutLombok.main(new String[0]);
   }
 }
